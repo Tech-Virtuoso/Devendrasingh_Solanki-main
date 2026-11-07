@@ -1,0 +1,704 @@
+/* Custom Enhancements */
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(255, 189, 57, 0.2);
+    border-color: var(--primary);
+}
+
+/* Enhanced Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Heading Zoom Effect */
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
+.heading-section h1:hover,
+.heading-section h2:hover {
+    transform: scale(1.05);
+    color: var(--primary);
+    cursor: default;
+}
+
+/* Navbar Name Dance Animation */
+@keyframes dance {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-2deg) scale(1.1);
+    }
+
+    50% {
+        transform: rotate(2deg) scale(1.1);
+    }
+
+    75% {
+        transform: rotate(-1deg) scale(1.05);
+    }
+}
+
+.navbar-brand:hover {
+    animation: dance 0.5s ease infinite;
+    color: var(--primary) !important;
+}
+
+/* Hero Glow */
+.hero-glow {
+    text-shadow: 0 0 20px rgba(255, 189, 57, 0.5);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button Gradients */
+.btn-primary {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #ffbd39);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+/* Project Card Enhancements */
+.project {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.project .img {
+    transition: transform 0.5s ease;
+}
+
+.project:hover .img {
+    transform: scale(1.1);
+}
+
+.project .text {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* Particles Canvas */
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero .overlay {
+    z-index: 0;
+}
+
+/* Marquee Section */
+.marquee-container {
+    display: flex;
+    overflow: visible;
+    padding: 2rem 0;
+    user-select: none;
+    gap: 2rem;
+}
+
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 2rem;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 3rem;
+    color: #ffbd39;
+    transition: color 0.3s ease, transform 0.3s ease;
+    animation: float-natural 4s ease-in-out infinite;
+}
+
+/* Colorful Icons Palette */
+.marquee-content span:nth-child(1),
+.marquee-content span:nth-child(9) {
+    color: #ffbd39;
+}
+
+.marquee-content span:nth-child(2),
+.marquee-content span:nth-child(10) {
+    color: #4facfe;
+}
+
+.marquee-content span:nth-child(3),
+.marquee-content span:nth-child(11) {
+    color: #00f260;
+}
+
+.marquee-content span:nth-child(4),
+.marquee-content span:nth-child(12) {
+    color: #ff6b6b;
+}
+
+.marquee-content span:nth-child(5),
+.marquee-content span:nth-child(13) {
+    color: #f093fb;
+}
+
+.marquee-content span:nth-child(6),
+.marquee-content span:nth-child(14) {
+    color: #7f7fd5;
+}
+
+.marquee-content span:nth-child(7),
+.marquee-content span:nth-child(15) {
+    color: #e0c3fc;
+}
+
+.marquee-content span:nth-child(8),
+.marquee-content span:nth-child(16) {
+    color: #8ec5fc;
+}
+
+.marquee-content span:hover {
+    filter: brightness(1.2);
+    transform: scale(1.2);
+}
+
+/* Natural Floating Animation (Sway + Float) */
+@keyframes float-natural {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(10px) rotate(-3deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Stagger animations for a wave effect */
+.marquee-content span:nth-child(odd) {
+    animation-delay: 0s;
+}
+
+.marquee-content span:nth-child(even) {
+    animation-delay: 1.5s;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 2rem));
+    }
+}
+
+/* --- Section Background Effects --- */
+
+/* 1. Floating Shapes (About Section) */
+.bg-shapes {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.bg-shapes::before,
+.bg-shapes::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.bg-shapes::before {
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    top: -50px;
+    left: -50px;
+}
+
+.bg-shapes::after {
+    width: 400px;
+    height: 400px;
+    background: #ff6b6b;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, 50px);
+    }
+}
+
+/* 2. Gradient Flow (Resume/Services) */
+.bg-gradient-flow {
+    background: linear-gradient(-45deg, #000000, #1a1a1a, #2c1e00, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 3. Tech Grid (Contact/Skills) */
+.bg-grid {
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgba(255, 189, 57, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 189, 57, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
+}
+
+/* Ensure content is above backgrounds */
+.ftco-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Distinct Section Backgrounds (Pastel Palette) --- */
+
+/* About Section - Soft Cream/Yellow Tint */
+.bg-section-about {
+    background-color: #fffdf5;
+    color: #333;
+}
+
+/* Resume Section - Soft Blue Tint */
+.bg-section-resume {
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Projects Section - Clean White */
+.bg-section-projects {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Contact Section - Soft Purple Tint */
+.bg-section-contact {
+    background-color: #f8f0ff;
+    color: #000000;
+}
+
+/* Ensure headings and text are visible on light backgrounds */
+.bg-section-about h1,
+.bg-section-about h2,
+.bg-section-about h3,
+.bg-section-about h4,
+.bg-section-about p,
+.bg-section-about span,
+.bg-section-resume h1,
+.bg-section-resume h2,
+.bg-section-resume h3,
+.bg-section-resume h4,
+.bg-section-resume p,
+.bg-section-resume span,
+.bg-section-projects h1,
+.bg-section-projects h2,
+.bg-section-projects h3,
+.bg-section-projects h4,
+.bg-section-projects p,
+.bg-section-projects span,
+.bg-section-contact h1,
+.bg-section-contact h2,
+.bg-section-contact h3,
+.bg-section-contact h4,
+.bg-section-contact p,
+.bg-section-contact span {
+    color: #000000;
+}
+
+.bg-section-about .subheading,
+.bg-section-resume .subheading,
+.bg-section-projects .subheading,
+.bg-section-contact .subheading {
+    color: #000000;
+}
+
+/* Contact Section Icon Color - Blue */
+.bg-section-contact .icon span {
+    color: #4facfe !important;
+}
+
+/* Contact Section Links - Force Black Color */
+.bg-section-contact a {
+    color: #000000 !important;
+    text-decoration: none;
+}
+
+.bg-section-contact a:hover {
+    color: #4facfe !important;
+}
+
+/* Ensure all contact info text is black */
+.bg-section-contact .box p,
+.bg-section-contact .box p a,
+.bg-section-contact .box a {
+    color: #000000 !important;
+}
+
+.bg-section-contact .box p a:hover,
+.bg-section-contact .box a:hover {
+    color: #4facfe !important;
+}
+
+/* Hire Me Section - White Text on Background Image */
+.ftco-hireme h2,
+.ftco-hireme h4,
+.ftco-hireme p,
+.ftco-hireme span {
+    color: #ffffff !important;
+}
+
+/* Counter Section - Yellow Text and Oval Blocks */
+#section-counter.ftco-counter {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 0 !important;
+    min-height: 100vh !important;
+    height: auto !important;
+}
+
+/* Dark gradient background instead of white */
+#section-counter.ftco-counter.img {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 75%, #16213e 100%) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite !important;
+    position: relative;
+    min-height: 100vh !important;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fallback if inline style is used */
+#section-counter[style*="bg_"] {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Responsive adjustments for background image */
+@media (max-width: 768px) {
+    #section-counter.ftco-counter.img {
+        background-attachment: scroll !important;
+        min-height: auto !important;
+        padding: 3rem 0 !important;
+    }
+    
+    .ftco-counter .block-18 {
+        min-height: 110px !important;
+        padding: 1rem 1.2rem !important;
+        max-width: 220px !important;
+    }
+}
+
+#section-counter.ftco-counter.img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* Add subtle pattern overlay */
+#section-counter.ftco-counter.img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 189, 57, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Smaller animated counter blocks with new gradient background */
+.ftco-counter .block-18 {
+    background: linear-gradient(135deg, rgba(255, 189, 57, 0.15) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(255, 107, 107, 0.15) 100%) !important;
+    border-radius: 25px !important;
+    padding: 1.2rem 1.5rem !important;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 189, 57, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 189, 57, 0.3), inset 0 0 20px rgba(255, 189, 57, 0.1);
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 10 !important;
+    min-height: 120px !important;
+    max-width: 240px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    animation: counterFloat 6s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+    cursor: pointer;
+}
+
+/* Floating animation for counter blocks */
+@keyframes counterFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(8px) rotate(-1deg);
+    }
+}
+
+/* Stagger animation delays for multiple blocks */
+.ftco-counter .counter-wrap:nth-child(1) .block-18 {
+    animation-delay: 0s;
+}
+
+.ftco-counter .counter-wrap:nth-child(2) .block-18 {
+    animation-delay: 1.5s;
+}
+
+/* Hover effects - scale and glow */
+.ftco-counter .block-18:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 189, 57, 0.6) !important;
+    border-color: #ffd700 !important;
+}
+
+/* Pulse glow effect */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 189, 57, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 189, 57, 0.6);
+    }
+}
+
+.ftco-counter .block-18 .text {
+    text-align: center;
+    overflow: visible !important;
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 11 !important;
+    width: 100% !important;
+}
+
+.ftco-counter .block-18 .text .number {
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Number animation on hover */
+.ftco-counter .block-18:hover .text .number {
+    transform: scale(1.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Multiple specific selectors to ensure yellow text shows with animations */
+.ftco-counter .block-18 .text span,
+#section-counter .block-18 .text span,
+.ftco-counter .block-18 span,
+#section-counter .block-18 span,
+section.ftco-counter span,
+.counter-wrap .block-18 .text span,
+.ftco-counter .text span,
+#section-counter .text span {
+    color: #ffbd39 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    display: block !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.3rem !important;
+    padding: 0.3rem 0.7rem !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    min-height: 1.6rem !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-radius: 8px !important;
+    text-shadow: 0 0 10px rgba(255, 189, 57, 1), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 12 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    box-shadow: 0 2px 8px rgba(255, 189, 57, 0.3) !important;
+    transform: translateZ(0) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Text hover effect */
+.ftco-counter .block-18:hover .text span {
+    background: rgba(0, 0, 0, 0.9) !important;
+    box-shadow: 0 4px 15px rgba(255, 189, 57, 0.5) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Removed duplicate overlay - using ::after instead */
+
+#section-counter.ftco-counter .container {
+    position: relative;
+    z-index: 2 !important;
+}
+
+#section-counter.ftco-counter .row {
+    position: relative;
+    z-index: 3 !important;
+}
+
+/* Ensure pattern overlay is behind content */
+#section-counter.ftco-counter.img::before {
+    z-index: 0 !important;
+}
+
+#section-counter.ftco-counter.img::after {
+    z-index: 1 !important;
+}
+
+/* Ensure no height constraints are cutting off text */
+.counter-wrap {
+    position: relative !important;
+    z-index: 5 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0.5rem !important;
+}
+
+.counter-wrap .block-18 {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.counter-wrap .block-18 .text {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Force text to be visible with high specificity */
+#section-counter .counter-wrap .block-18 .text span {
+    content: attr(data-text) !important;
+    color: #ffbd39 !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+    margin-top: 0.8rem !important;
+}
+}
